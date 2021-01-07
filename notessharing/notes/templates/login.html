@@ -1,0 +1,47 @@
+{% extends 'navigation.html' %}
+  {% load static %}
+    {% block body %}
+
+    {% ifequal error "no" %}
+    <script>
+      alert('Logged In Successfully');
+      window.location=('{% url 'profile' %}');        
+    </script>
+    {% endifequal %}
+    {% ifequal error "yes" %}
+    <script>
+      alert('Invalid Login Username Password, Please try Again');
+    </script>
+    {% endifequal %}
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2 class="text-center" style="font-weight:bold">New Customer</h2>
+            <hr>
+            <p>By Creating an Account with our Website , U will be able to move through the notes uploading
+              and Downloading Process and more....
+            </p>
+            <center><a href="/signup" class="btn btn-danger text-white mt-3">Create an Account</a></center>
+
+          </div>
+          <div class="col-sm-6">
+            <h2 class="text-center" style="font-weight:bold">User Login</h2>
+            <hr>
+            <form method="post">
+              {% csrf_token %}
+              <label>Email Address</label>
+                <input type="email" class="form-control" placeholder="Enter Email-id" name="emailid">
+              <label>Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password" name="pwd">
+                <input type="submit" class="btn btn-success mt-3" value="Login">
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    {% endblock %}
