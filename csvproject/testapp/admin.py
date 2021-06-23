@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Contact,Contact1
-# Register your models here.
+# Register your models here. ai MANJBDFKJAS
 
 class ContactAdmin(admin.ModelAdmin):
     list_display=['name','email','message']
